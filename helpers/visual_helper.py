@@ -21,7 +21,7 @@ def sentiment_to_opencv(overall_sentiment):
     return blue, green, red
 
 
-def generate_image(reviews_bgr):
+def generate_image(reviews_bgr, image_name):
     if len(reviews_bgr) != 400:
         return False
     image = np.zeros((20, 20, 3), dtype=np.uint8)
@@ -30,4 +30,4 @@ def generate_image(reviews_bgr):
         for j in range(20):
             image[i][j] = reviews_bgr[counter]
             counter += 1
-    return cv2.imwrite("image.png", image)
+    return cv2.imwrite(image_name, image)

@@ -23,16 +23,14 @@ class Test(TestCase):
         blue, green, red = sentiment_to_opencv(overal_sentiment)
         self.assertTrue(blue == 51 and red == 230 and green == 179)
 
-
-class Test(TestCase):
     def test_generate_image(self):
         reviews_bgr = []
         for i in range(400):
             reviews_bgr.append((255, 255, 0))
-        self.assertTrue(generate_image(reviews_bgr))
+        self.assertTrue(generate_image(reviews_bgr, 'temp.png'))
 
     def test_generate_non_compatible(self):
         reviews_bgr = []
         for i in range(401):
             reviews_bgr.append((255, 255, 0))
-        self.assertFalse(generate_image(reviews_bgr))
+        self.assertFalse(generate_image(reviews_bgr, 'temp.png'))
