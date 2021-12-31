@@ -31,3 +31,21 @@ def generate_image(reviews_bgr, image_name):
             image[i][j] = reviews_bgr[counter]
             counter += 1
     return cv2.imwrite(image_name, image)
+
+
+def mix_colors(reviews_bgr, image_name):
+    average_blue = 0
+    average_green = 0
+    average_red = 0
+    for blue, green, red in reviews_bgr:
+        average_blue += int(blue)
+        average_green += int(green)
+        average_red += int(red)
+
+    average_blue = ceil(average_blue/len(reviews_bgr))
+    average_green = ceil(average_green / len(reviews_bgr))
+    average_red = ceil(average_red / len(reviews_bgr))
+    image = np.zeros((150, 150, 3), dtype=np.uint8)
+    image[:] = (average_blue, average_green, average_red)
+
+    return cv2.imwrite(image_name, image)

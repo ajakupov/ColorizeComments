@@ -1,6 +1,6 @@
 import pandas as pd
 
-from helpers.visual_helper import phrase_to_pixel, generate_image
+from helpers.visual_helper import phrase_to_pixel, generate_image, mix_colors
 from helpers.ott_helper import get_ott_negative_deceptive, get_ott_negative_truthful
 from helpers.ott_helper import get_ott_positive_deceptive, get_ott_positive_truthful
 from helpers.ott_helper import get_ott_negative_deceptive_colored, get_ott_negative_truthful_colored
@@ -59,5 +59,36 @@ def colorize_truthful_positive():
     generate_image(ott_positive_truthful_colored['sentiment'], 'artifacts/truthful_positive.png')
 
 
+def colorize_deceptive_negative_average():
+    ott_negative_deceptive_colored = get_ott_negative_deceptive_colored()
+    ott_negative_deceptive_colored['sentiment'] = ott_negative_deceptive_colored['sentiment'].apply(
+        lambda x: x.split(' '))
+    mix_colors(ott_negative_deceptive_colored['sentiment'], 'artifacts/deceptive_negative_average.png')
+
+
+def colorize_deceptive_positive_average():
+    ott_positive_deceptive_colored = get_ott_positive_deceptive_colored()
+    ott_positive_deceptive_colored['sentiment'] = ott_positive_deceptive_colored['sentiment'].apply(
+        lambda x: x.split(' '))
+    mix_colors(ott_positive_deceptive_colored['sentiment'], 'artifacts/deceptive_positive_average.png')
+
+
+def colorize_truthful_negative_average():
+    ott_negative_truthful_colored = get_ott_negative_truthful_colored()
+    ott_negative_truthful_colored['sentiment'] = ott_negative_truthful_colored['sentiment'].apply(
+        lambda x: x.split(' '))
+    mix_colors(ott_negative_truthful_colored['sentiment'], 'artifacts/truthful_negative_average.png')
+
+
+def colorize_truthful_positive_average():
+    ott_positive_truthful_colored = get_ott_positive_truthful_colored()
+    ott_positive_truthful_colored['sentiment'] = ott_positive_truthful_colored['sentiment'].apply(
+        lambda x: x.split(' '))
+    mix_colors(ott_positive_truthful_colored['sentiment'], 'artifacts/truthful_positive_average.png')
+
+
 if __name__ == '__main__':
-    colorize_truthful_positive()
+    colorize_deceptive_negative_average()
+    colorize_deceptive_positive_average()
+    colorize_truthful_negative_average()
+    colorize_truthful_positive_average()
