@@ -88,7 +88,6 @@ def colorize_truthful_positive_average():
 
 
 if __name__ == '__main__':
-    colorize_deceptive_negative_average()
+    run_deceptive_positive()
+    colorize_deceptive_positive()
     colorize_deceptive_positive_average()
-    colorize_truthful_negative_average()
-    colorize_truthful_positive_average()

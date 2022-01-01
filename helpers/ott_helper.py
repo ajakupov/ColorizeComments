@@ -34,7 +34,7 @@ def get_ott_negative_deceptive():
 
 def get_ott_positive_deceptive():
     ott_dataframe_positive = get_ott_positive()
-    ott_dataframe_positive_truthful = ott_dataframe_positive[ott_dataframe_positive['deceptive'] == 'truthful']
+    ott_dataframe_positive_truthful = ott_dataframe_positive[ott_dataframe_positive['deceptive'] == 'deceptive']
     return ott_dataframe_positive_truthful
 
 
