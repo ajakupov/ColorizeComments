@@ -12,12 +12,15 @@ text_analytics_client = TextAnalyticsClient(endpoint, credential)
 def get_overall_sentiment(phrase):
     documents = [phrase]
     response = text_analytics_client.analyze_sentiment(documents, language='en')
-    result = [doc for doc in response if not doc.is_error]
-    output = result[0]
+    result = response[0]
+    if result.is_error:
+        raise ValueError(
+            "Sentiment analysis of document failed with code '{}' and message '{}'".format(result.error.code,
+                                                                                           result.error.message))
 
-    positive = output.confidence_scores.positive
-    neutral = output.confidence_scores.neutral
-    negative = output.confidence_scores.negative
+    positive = result.confidence_scores.positive
+    neutral = result.confidence_scores.neutral
+    negative = result.confidence_scores.negative
 
     return positive, neutral, negative
 
