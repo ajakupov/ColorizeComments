@@ -2,6 +2,9 @@
 
 ## What color is deception?
 
+
+![alt text](https://devblogs.microsoft.com/azure-sdk/wp-content/uploads/sites/58/2022/04/sentiments_average.jpg)
+
 With increasing popularity of web reviews, there’s been an explosion of web authorship from individuals. These reviews may be classified as false reviews or Opinion Spam. Opinion Spam is inappropriate or fraudulent reviews. It can range from self-promotion of an unrelated website or blog to deliberate review fraud with a potential for monetary gain.
 
 One risk of Opinion Spam is the reviews that falsely praise inferior products or criticize superior products, as they may affect a potential consumer’s actions. Therefore, companies are highly motivated to automatically detect and remove Opinion Spam. Other Natural Language Processing (NLP) tasks, like sentiment analysis or intent recognition, have received considerable computational attention. But, relatively little study has been conducted in detecting Opinion Spam using text classification techniques.
